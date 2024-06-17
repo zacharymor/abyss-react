@@ -152,7 +152,7 @@ function ArticleForm({ newArticleTitle, newArticleContent, handleTitleChange, ha
     formData.append('image', image);
 
     try {
-      const response = await axios.post('http://abyss-react-amber.vercel.app/api/upload', formData, {
+      const response = await axios.post('https://abyss-react-amber.vercel.app/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -215,7 +215,7 @@ function App() {
   const handleRegister = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://abyss-react-amber.vercel.app/api/register', {
+      const response = await axios.post('https://abyss-react-amber.vercel.app/api/register', {
         username,
         password,
       });
@@ -231,7 +231,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://abyss-react-amber.vercel.app/api/login', {
+      const response = await axios.post('https://abyss-react-amber.vercel.app/api/login', {
         username,
         password,
       });
@@ -251,7 +251,7 @@ function App() {
   };
 
   useEffect(() => {
-    axios.get('http://abyss-react-amber.vercel.app/api/articles')
+    axios.get('https://abyss-react-amber.vercel.app/api/articles')
       .then(response => {
         setArticles(response.data);
       })
@@ -270,7 +270,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://abyss-react-amber.vercel.app/api/articles', {
+    axios.post('https://abyss-react-amber.vercel.app/api/articles', {
       title: newArticleTitle,
       content: newArticleContent
     }, {
@@ -287,7 +287,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://abyss-react-amber.vercel.app/api/articles/${id}`, {
+    axios.delete(`https://abyss-react-amber.vercel.app/api/articles/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => {
